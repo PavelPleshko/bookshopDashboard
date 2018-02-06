@@ -1,0 +1,2 @@
+<app-product-list [products]="products" [totalPages]="totalPages" [currentPage]="currentPage"></app-product-list>
+<ngb-pagination class="d-flex justify-content-center" [collectionSize]="totalItems" [(page)]="currentPage" [maxSize]="pageSize" [rotate]="true" (pageChange)="updateEntries()" [boundaryLinks]="true"></ngb-pagination>

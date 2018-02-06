@@ -1,0 +1,157 @@
+@import './assets/styles/_variables';
+
+
+@font-face{
+	font-family: 'techno';
+	src: url("/assets/fonts/techno.otf");
+}
+
+::placeholder{
+	color:#dedede;
+}
+
+.default{
+	@import './assets/styles/default';
+}
+
+*{
+	padding:0;
+	margin:0;
+}
+
+
+body{
+	color:$main-font-color;
+	font-family:$main-font-family;
+}
+
+
+.main-form-control{
+	background:none;
+	color:#fff;
+	outline:none !important;
+	border:none !important;
+	border-bottom:1.5px solid $border-main-bottom;
+
+	&+label{
+	font-size:14px;
+
+	}
+	&:focus{
+	border-bottom:3px solid $border-main-bottom;
+
+	&+label{
+
+	}
+	}
+}
+
+.form-control{
+	background:$secondary-bg-color-darker !important;
+	color:#fff !important;
+
+	&:focus{
+	background:$main-bg-color-lighter !important;
+	}
+}
+
+.material-icons{
+	vertical-align:bottom;
+}
+
+.modal-content{
+	background-color:$secondary-bg-color !important;
+	padding:20px;
+}
+
+
+.chip{
+	padding:6px;
+	background:$main-bg-color-lighter;
+	text-align:center;
+	border-radius:20px;
+	margin-right:5px;
+	margin-bottom: 4px;
+    position: relative;
+    display: inline-block;
+
+	i{
+	opacity:0.8;
+	cursor:pointer;
+	font-weight:200;
+
+	&:hover{
+	opacity:1;
+	}
+	}
+}
+
+.hoverable{
+	cursor:pointer;
+	opacity:.85;
+	&:hover{
+	opacity:1;
+	}
+}
+
+
+button,.btn{
+	color:#fff;
+	cursor:pointer;
+	transition:.2s ease-in;
+
+	&.custom-danger-btn{
+	background:$button-danger-bg;
+	border:1px solid $button-danger-border;
+	}
+
+&.custom-primary-btn{
+	background:$button-primary-bg;
+	border:1px solid $button-primary-border;
+}
+
+&:hover{
+	opacity:0.8;
+}
+}
+
+.form-control-empty{
+	background:none;
+	border:none;
+	outline:none;
+	color:#fff;
+}
+
+//daterange picker
+ .custom-day {
+      text-align: center;
+      padding: 0.185rem 0.25rem;
+      display: inline-block;
+      height: 2rem;
+      width: 2rem;
+    }
+    .custom-day.focused {
+      background-color: #e6e6e6;
+    }
+    .custom-day.range, .custom-day:hover {
+      background-color: rgb(2, 117, 216);
+      color: white;
+    }
+    .custom-day.faded {
+      background-color: rgba(2, 117, 216, 0.5);
+    }
+
+
+
+//simple animation helpers
+
+.rotating{
+	animation:rotate 1s infinite linear;
+}
+
+
+@keyframes rotate{
+	to{
+	transform:rotateZ(360deg);
+	}
+}

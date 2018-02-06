@@ -1,0 +1,10 @@
+@import '../_variables';
+
+.sidebar{
+	position:fixed;
+	left:0;
+	height:100%;
+	padding:50px 10px 20px 15px;
+	background:$main-bg-color;
+
+}

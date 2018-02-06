@@ -1,0 +1,23 @@
+<div class="row customers-group">
+<h5 class="customers-group--add" (click)="toggleForm()">Add group<i class="material-icons">group_add</i></h5>
+
+<div class="col-lg-11 col-md-11 col-sm-11" *ngFor="let group of groups">
+<div class="card customers-group-card">
+      <div class="card-body">
+        <h5 class="card-title {{group.style}}">{{group.title}}</h5>
+        <div class="row ml-1">
+        <span class="mr-3">{{group.users.length}} <small>users</small></span>
+        <div class="users-row">
+        <div  *ngFor="let user of group.users.byId">
+        	<img class="card-thumbnail" src="/assets/img/customers/{{user.thumbnail}}.jpg">
+        </div>
+    </div>
+</div>
+        <p class="card-text">{{group.description}}</p>
+      </div>
+    </div>
+</div>
+</div>
+<div class="add-group-form-wrapper" *ngIf="formVisible">
+<app-add-group-form [colors]="colors" (submitted)="onFormSubmitted($event)"></app-add-group-form>
+</div>

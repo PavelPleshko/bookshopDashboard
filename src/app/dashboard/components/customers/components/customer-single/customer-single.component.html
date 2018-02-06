@@ -1,0 +1,18 @@
+<li class="customer-list-item">
+	<div class="customer-list--thumb" [style.background-image]="image">
+	</div>
+	<div class="customer-list--name">
+		{{customer.name}}
+		<br>
+		<div class="customer-list--nickname">
+			{{customer.username}}
+		</div>
+	</div>
+
+	<div class="customer-list--country">
+		<app-dropdown [groupList]="groupList" (addUser)="addUserToGroup($event)"></app-dropdown>
+		{{customer.country}}
+	</div>
+	
+
+</li>

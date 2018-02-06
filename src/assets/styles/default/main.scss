@@ -1,0 +1,45 @@
+
+.primary-bg{
+	background: $main-bg-color !important;
+	background: -webkit-linear-gradient(to right, $main-bg-color, $secondary-bg-color) !important;
+	background: linear-gradient(to right, $main-bg-color, $secondary-bg-color) !important;
+}
+
+.screen{
+	width:100%;
+	min-height:100%;
+	overflow:hidden;
+	position:absolute; 
+	left:0;
+	top:0;
+}
+
+.main-content{
+	position:relative;
+	margin-left:20%;
+	margin-top:100px;
+}
+
+
+
+
+
+.pagination{
+	
+	.page-link{
+	background-color:$main-bg-color-lighter !important;
+
+	&:hover{
+	background-color:$main-bg-color;
+	}
+	}
+	.active .page-link{
+	background-color:$secondary-bg-color !important;
+	}
+}
+
+.modal-content{
+	background-color:$secondary-bg-color !important;
+}
+
+

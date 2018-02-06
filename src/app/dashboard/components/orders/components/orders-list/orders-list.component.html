@@ -1,0 +1,83 @@
+<p class="float-right"><small>Found:</small> <strong>{{totalItems}}</strong></p>
+<div class="table-responsive">
+  <table class="table">
+	  <thead>
+
+	    <tr>
+	    	
+	      <th *ngFor="let theader of theaders">{{theader.title}}<span *ngIf="theader.sort"><i class="material-icons hoverable sorters" (click)="sortBy(theader.value)">{{sorted==theader.value ?  'arrow_downward' : 'arrow_upward'}}</i></span></th>
+
+	    </tr>
+
+	    <tr>
+	    	 <th><i class="material-icons hoverable" (click)="showForm()">add_circle_outline</i></th>
+	    	<th *ngFor="let filter of filters">
+	    		<input type="text" name="{{filter.title}}" [(ngModel)]="filterModels[filter.title].value" placeholder="{{filter.title}}" class="form-control">
+	    	</th>
+	    	<th>
+<input type="text" name="date" class="form-control" placeholder="pick date range" (click)="toggleDpicker()">
+	    		<ngb-datepicker  class="primary-bg" *ngIf="dpickerVisible" #dp ngModel (ngModelChange)="onDateChange($event)" [displayMonths]="2" [dayTemplate]="t">
+</ngb-datepicker>
+
+<ng-template #t let-date="date" let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+</ng-template>
+	    	</th>
+	    </tr>
+
+	    <tr [hidden]="!formShown" [formGroup]="orderForm">
+	    	
+	      <th><span class="action-icons"><i class="material-icons hoverable" (click)="addOrder()">done</i><i class="material-icons hoverable" (click)="hideForm()">close</i></span></th>
+	      <th><input type="text" name="id" formControlName="id" placeholder="ID" class="form-control"></th>
+	      <th><input type="text" name="buyer" formControlName="buyer" placeholder="Buyer"
+	      [ngbTypeahead]="usersTypeahead" (selectItem)="onSelectUser($event,orderForm)"
+	       class="form-control"></th>
+
+	      <th class="text-left">
+	      	<div name="products" #products class="main-form-control">
+	      		<span *ngFor="let chip of chipsArray;let i = index;" class="chip">{{chip.title}}<i class="material-icons text-muted" (click)="removeChip(i,orderForm)">close</i></span>
+	      		<input type="text" class="form-control-empty" [ngbTypeahead]="productsTypeahead" (selectItem)="onSelectProduct($event,orderForm)" #productInput name="product">
+	      	</div>
+	      </th>
+
+	      <th>{{orderForm.get('amount').value > 0 ? orderForm.get('amount').value : '(auto)'}}</th>
+	      <th>{{orderForm.get('total').value > 0 ? orderForm.get('total').value : '(auto)'}}</th>
+	      <th>
+		      <select name="status" formControlName="status" class="form-control">
+		      	<option value="" disabled selected>Choose status</option>
+		      	<option *ngFor="let option of statusOptions" value="{{option.value}}">
+		      		<small>{{option.text}}</small>
+		      	</option>
+		      </select>
+	  	 </th>
+	      <th>{{orderForm.get('createdAt').value > 0 ? (orderForm.get('createdAt').value | date : 'shortDate') : '(auto)'}}</th>
+	    </tr>
+	
+	 </thead>
+	 <tbody>
+	 
+
+	 		
+<tr class="order-tr" *ngFor="let order of orders | multipleFilter : filterModels : updateNumberOfEntries.bind(this) | pagination : currentPage : pageSize;trackBy:trackByFn">
+   <td class="action-icons"><i class="material-icons hoverable">edit</i><i class="material-icons hoverable" (click)="deleteOrder(order.id)">delete_forever</i></td>
+	      <td>{{order.id}}</td>
+	      <td>{{order.buyer}}</td>
+	      <td><span *ngFor="let product of order.products;let i=index">{{product}}{{i==(order.products.length-1) ? '' : ', '}}</span></td>
+	      <td>{{order.products.length}}</td>
+	      <td>{{order.total}}</td>
+	      <td [ngClass]="{'awaiting':order.status == 'awaiting payment','finalized':order.status == 'finalized',
+	      'cancelled':order.status == 'cancelled'}">{{order.status}}</td>
+	      <td>{{order.createdAt | date : 'shortDate'}}</td>
+	  </tr>
+	 	
+	 </tbody>
+  </table>
+</div>
+	<ngb-pagination class="d-flex justify-content-center" [collectionSize]="totalItems" [(page)]="currentPage" [maxSize]="pageSize" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>

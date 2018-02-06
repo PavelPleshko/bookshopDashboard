@@ -1,0 +1,55 @@
+
+//base
+$main-bg-color:#000428;
+$secondary-bg-color:#004e92;
+
+$main-bg-color-lighter:lighten($main-bg-color,5%);
+$main-bg-color-darker:darken($main-bg-color,5%);
+
+$secondary-bg-color-lighter:lighten($secondary-bg-color,5%);
+$secondary-bg-color-darker:darken($secondary-bg-color,5%);
+
+//typography
+$main-font-color:#fff;
+$main-font-family:'techno';
+
+$font-size-small:80%;
+$font-size-normal:100%;
+$font-size-big:125%;
+$font-size-bigger:150%;
+$font-size-extra-big:180%;
+
+$text-shadow-mild-white:2px 3px 1px rgba(255,255,255,.5);
+$text-shadow-heavy-white:3px 4px 2px rgba(255,255,255,.8);
+
+
+
+//borders
+$border-main-bottom:darken(#dedede,3%) !important;
+
+
+
+$margin-center-vertical-align:auto 0;
+
+
+
+$box-shadow-main:1px 1px 5px 0px $secondary-bg-color-darker;
+
+
+
+$premium-color:#28e028;
+$standard-color:$secondary-bg-color;
+$advanced-color:#f019dd;
+$warning-color:#ef6c00;
+$golden-color:#ffff00;
+$inactive-color:#757575;
+$danger-color:#b71c1c;
+
+//buttons
+$button-primary-bg:#140c63;
+$button-primary-border:lighten($button-primary-bg,20%);
+
+$button-danger-bg:#480619;
+$button-danger-border:lighten($button-danger-bg,10%);
+
+

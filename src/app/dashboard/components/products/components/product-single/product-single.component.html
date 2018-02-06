@@ -1,0 +1,40 @@
+<div class="product-single">
+<div class="card mb-3 product-single--card">
+  <div class="product-single--header">{{product.title}}</div>
+  <div class="row product-single--main">
+  <div class="product-single--image-wrapper col-md-3 col-sm-3 col-xs-3 ml-2 mr-3 mt-1">
+  	<img class="product-single--image" src="/assets/img/products/{{product.thumbnail}}.jpg">
+  </div>
+  <div class="col-md-8 col-sm-8 col-xs-12">
+
+<div class="product-single--authors">
+    <strong>By:</strong> <small class="product-single--author" *ngFor="let author of product.authors;let i=index;"><span class="product-single--author-name">{{author}}</span><span class="product-single--author-divider">{{i==(product.authors.length-1) ? '' : ' | '}}</span></small>
+  </div>
+  <div class="product-single--topics mt-3">
+  	<span class="product-single--topic primary-bg mr-2" *ngFor="let topic of product.topics">{{topic}}</span>
+  </div>
+  <div class="product-single--release mt-3">
+  	<small>Release date: <strong>{{product.release | date : 'MMMM yyyy'}}</strong></small>
+  </div>
+
+  
+</div>
+
+</div>
+<div class="product-single--footer">
+	<div class="btn-group m-1">
+	<button class="btn custom-primary-btn product-edit-btn" (click)="openModal()">
+		Edit
+	</button>
+	<button class="btn custom-danger-btn product-edit-btn">
+		Delete
+	</button>
+</div>
+	<span class="product-single--price">
+	  	<div class="product-single--price-number">
+	  	{{product.price | currency : activeCurrency : 'symbol'}}
+	    </div>
+  </span>
+</div>
+</div>
+</div>

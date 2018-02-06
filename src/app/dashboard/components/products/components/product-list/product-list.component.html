@@ -1,0 +1,9 @@
+<h5>Product list</h5><span class="">Page {{currentPage}} of {{totalPages}}</span>
+<div class="row mr-5">
+
+<div class="col-lg-6 col-md-6 col-sm-9 col-xs-11" *ngFor="let product of products">
+<app-product-single [product]="product"></app-product-single>
+</div>
+
+
+</div>

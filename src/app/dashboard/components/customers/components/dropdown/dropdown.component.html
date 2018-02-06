@@ -1,0 +1,15 @@
+<div class="dropdown-wrapper">
+		<i class="material-icons customer-actions-toggler">more_horiz</i>
+			 <div class="customer-actions-dropdown">
+		    <a class="dropdown-item" href="#">Remove</a>
+		    <a class="dropdown-item" href="#">Details</a>
+		    <a class="submenu-toggler">
+		    <a class="dropdown-item">Configure groups<i class="material-icons">arrow_drop_down</i>
+			     
+		</a>
+		<div class="customer-actions-dropdown--sub">
+				    <a class="dropdown-item" (click)="addUserToGroup(group.id)" *ngFor="let group of groupList">{{group.title}}<i *ngIf="group.in" class="material-icons belongs-icon">done</i></a>
+				</div>
+			</a>
+  		</div>
+  	</div>
