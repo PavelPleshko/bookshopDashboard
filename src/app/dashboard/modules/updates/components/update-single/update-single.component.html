@@ -1,0 +1,20 @@
+<div class="update" [ngSwitch]="update.type">
+	<div class="update--user">
+		<img src="/assets/img/customers/{{update.user.thumbnail}}.jpg" class="update--user--img">
+		<i class="material-icons icon-primary" *ngSwitchCase="'submit_order'">done</i>
+		<i class="material-icons icon-primary" *ngSwitchCase="'left_message'">mail_outline</i>
+		<i class="material-icons icon-danger" *ngSwitchCase="'cancelled_order'">close</i>
+		<i class="material-icons icon-success" *ngSwitchCase="'payed_order'">payment</i>
+	</div>
+	<div class="update--body">
+		<strong>{{update.user.name}}</strong>
+		<div class="update--body--description">
+		<span *ngSwitchCase="'submit_order'"> submitted order</span>
+		<span *ngSwitchCase="'left_message'"> left a message </span>
+		<span *ngSwitchCase="'cancelled_order'"> cancelled order</span>
+		<span *ngSwitchCase="'payed_order'"> made the payment for order</span>
+		<span  class="update--body--description-target" *ngIf="update.target">#{{update.target.id}}</span>
+		<span class="update--body--description--date">on <small>{{update.timestamp | date : 'longDate'}}</small></span>
+	</div>
+	</div>
+</div>

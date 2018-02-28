@@ -1,16 +1,21 @@
 
-<div class="">
+<div class="main" id="main">
 	
 	<div class="col-sm-12">
-<app-navbar></app-navbar>
+<app-navbar (themeChanged)="onThemeChanged($event)" (toggleSidebar)="onToggleSidebar()" [updates]="updates" [currentTheme]="currentTheme"></app-navbar>
 </div>
 
 <div class="primary-bg screen">
-<div class="col-md-2 col-sm-6 sidebar">
-<app-sidebar></app-sidebar>
+
+
+<div class="col-md-2 col-sm-1 col-xs-1">
+<app-sidebar class="sidebar" [sidebarCollapsed]="sidebarCollapsed"></app-sidebar>
 </div>
-<div class="col-md-10 col-sm-12 main-content">
-	<router-outlet></router-outlet>
-	</div>
+
+<div class="col-md-10 col-sm-11 col-xs-11 ml-md-auto main-content pt-1">
+	<router-outlet ></router-outlet>	
+</div>
+
 </div>
 </div>
+

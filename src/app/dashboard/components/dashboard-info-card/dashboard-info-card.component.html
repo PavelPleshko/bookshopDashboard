@@ -1,0 +1,9 @@
+
+<div class="dashboard-info-card primary-bg-reverse">
+<div class="dashboard-info-card--title">{{card.title}}<div class="float-right dashboard-info-card--title--amount">{{amount}}<span *ngIf="increaseEnabled" [ngClass]="{'text-danger':amount<amount2}" class="text-success"><i class="material-icons align-middle">{{amount > amount2 ? 'arrow_upward' : 'arrow_downward'}}</i></span></div></div>
+<div class="dashboard-info-card--body">
+<div class="dashboard-info-card--body-percentage">{{percentage | percent}}</div>
+<div id="{{card.type}}" #chart class="dashboard-info-card--chart"></div>
+
+</div>
+</div>

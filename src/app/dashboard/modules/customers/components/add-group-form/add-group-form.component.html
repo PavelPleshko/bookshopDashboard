@@ -1,0 +1,19 @@
+<div class="">
+	<form [formGroup]="addGroupForm" name="addGroupForm" class="col-lg-4 col-md-4 col-sm-11 col-xs-11 add-customer-group-form primary-bg">
+<input type="text" formControlName="title" class="col-md-8 col-sm-12 main-form-control" placeholder="title" name="title" required>
+
+<textarea class="col-sm-12 main-form-control mt-5" formControlName="description" name="description" placeholder="description..." required >
+</textarea>
+<div class="radio-group mt-2" >
+	<div class="" *ngFor="let color of colors;let i = index;">
+<input type="radio" formControlName="style" name="style" [attr.checked]="i===0" id="{{color}}" value="{{color}}" style="display: none;">
+<label class="{{color}}" for="{{color}}"></label>
+</div>
+<span class="ml-2"><small>Choose style</small></span>
+</div>
+<button class="btn custom-primary-btn" type="submit" (click)="submit()">Create</button>
+<button class="btn custom-danger-btn" type="button" (click)="cancel()">Cancel</button>
+
+
+</form>
+</div>

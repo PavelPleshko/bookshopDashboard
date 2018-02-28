@@ -24,7 +24,7 @@ return filteredItems;
 }
 
 stringFilter(itemValue,searchValue){
-	let field = itemValue.toLowerCase();
+	let field = itemValue.toString().toLowerCase();
 	return field.indexOf(searchValue) >= 0;
 }
 

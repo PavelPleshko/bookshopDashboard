@@ -3,21 +3,22 @@ import { CommonModule } from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {DashboardComponent} from './dashboard.component';
 import {RouterModule, Routes } from '@angular/router';
-
+import { DashboardInfoCardComponent } from './components/dashboard-info-card/dashboard-info-card.component';
+import { DashboardPrimaryChartComponent } from './components/dashboard-primary-chart/dashboard-primary-chart.component';
+import { DashboardMapChartComponent } from './components/dashboard-map-chart/dashboard-map-chart.component';
 const routes:Routes=[
-{path:'',component:DashboardComponent},
-{path:'orders',loadChildren:'./components/orders/orders.module#OrdersModule'},
-{path:'products',loadChildren:'./components/products/products.module#ProductsModule'},
-{path:'customers',loadChildren:'./components/customers/customers.module#CustomersModule'},
-{path:'reports',loadChildren:'./components/reports/reports.module#ReportsModule'},
-{path:'calendar',loadChildren:'./components/calendar/calendar.module#CalendarModule'},
+{path:'',pathMatch:'full',component:DashboardComponent},
+{path:'orders',loadChildren:'./modules/orders/orders.module#OrdersModule'},
+{path:'products',loadChildren:'./modules/products/products.module#ProductsModule'},
+{path:'customers',loadChildren:'./modules/customers/customers.module#CustomersModule'},
+{path:'updates',loadChildren:'./modules/updates/updates.module#UpdatesModule'},
 ];
 
 @NgModule({
   imports: [
     CommonModule,SharedModule,RouterModule.forChild(routes)
   ],
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, DashboardInfoCardComponent, DashboardPrimaryChartComponent, DashboardMapChartComponent],
   exports:[]
 })
 export class DashboardModule { }

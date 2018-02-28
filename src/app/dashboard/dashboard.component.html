@@ -1,3 +1,9 @@
-<p>
-  dashboard works!
-</p>
+<div class="mr-5 row">
+<app-dashboard-info-card class="col-lg-3 col-md-3 col-sm-6 col-xs-12" *ngFor="let card of infoCards" [card]="card" [currentTheme]="currentTheme"></app-dashboard-info-card>
+</div>
+<div class="mt-2 row mr-5">
+
+<app-dashboard-primary-chart class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [options]="revenueChartOptions" [currentTheme]="currentTheme" title="Revenue"></app-dashboard-primary-chart>
+
+<app-dashboard-map-chart class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [options]="usersMapChartOptions" [currentTheme]="currentTheme" title="Users by country"></app-dashboard-map-chart>
+</div>

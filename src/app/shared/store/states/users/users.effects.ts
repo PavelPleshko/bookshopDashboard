@@ -3,7 +3,7 @@ import {Effect,Actions} from '@ngrx/effects';
 import {switchMap,map,catchError} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import * as usersActions from './users.actions';
-import {CustomersService} from '../../../../dashboard/components/customers/services/customers.service';
+import {CustomersService} from '../../../../dashboard/modules/customers/services/customers.service';
 import {tableHelper} from '../../../../shared/helpers/table';
 
 @Injectable()

@@ -1,0 +1,23 @@
+
+.sidebar{
+	position:fixed;
+	left:0;
+	height:100%;
+	padding:50px 10px 20px 15px;
+	background:$main-bg-color-light;
+
+
+	.nav-link,.material-icons{
+	color:$secondary-bg-color-light !important;
+
+	&:hover{
+	color:darken($secondary-bg-color-darker-light,20%) !important;
+	}
+}
+}
+
+@media screen and (max-width: 760px) {
+.sidebar {
+    display: none;
+}
+}

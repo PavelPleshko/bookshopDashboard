@@ -7,7 +7,7 @@ export interface IOrderCommon {
   buyer:string;
   products:Array<string>;
   status:'submitted' | 'awaiting payment' |'finalized' | 'cancelled';
-  createdAt:Date;
+  lastUpdated:Date;
   amount:number;
   total:number;
 }
@@ -17,8 +17,8 @@ export interface IOrderPopulated {
   id: number;
   buyer:IUserCommon;
   products: Array<IProductCommon>;
-  status:'submitted' | 'awaiting payment' |'finalized';
-  createdAt:Date;
+  status:'submitted' | 'awaiting payment' |'finalized' | 'cancelled';
+  lastUpdated:Date;
   amount:number;
   total:number;
 }

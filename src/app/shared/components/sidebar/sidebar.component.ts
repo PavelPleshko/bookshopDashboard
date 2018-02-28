@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component, OnInit,Input,ChangeDetectionStrategy} from '@angular/core';
+import {dropFromTop} from '../../../animations/animations';
+
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush,
+  animations: [dropFromTop],
+  host: {'[@dropFromTop]': ''}
 })
-export class SidebarComponent implements OnInit {
-  constructor(private store$: Store<any>) { }
-
-  ngOnInit() {
+export class SidebarComponent{
+  @Input() sidebarCollapsed:boolean;
  
-  	
-  }
+  constructor() { }
+
+
+ 
 
 }

@@ -54,3 +54,24 @@ export const getPopulatedOrdersArray = createSelector(getAllOrders,getAllUsers,g
 		return ordersSummaryArray;
 })
 
+export const getUsersWithOrders = createSelector(getAllUsers,getAllOrders,(users:IUsersTable,orders:IOrdersTable)=>{
+let usersWithLastOrderArray = users.allIds.map(userId=>{
+	let user = users.byId[userId];
+	let userLastOrder;
+	orders.allIds.forEach(orderId=>{
+		let order = orders.byId[orderId];
+		if(order.buyer == userId){
+			if(!userLastOrder){
+				userLastOrder = order.lastUpdated;
+			}else{
+				if(userLastOrder < order.lastUpdated){
+					userLastOrder = order.lastUpdated;
+				}
+			}
+		}
+	})
+	return {...user,
+		lastOrder:userLastOrder}
+})
+return usersWithLastOrderArray;
+})

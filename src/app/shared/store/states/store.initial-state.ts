@@ -7,7 +7,8 @@ return {
 	users:undefined,
 	customer_groups:undefined,
 	products:undefined,
-	orders:undefined
+	orders:undefined,
+	updates:undefined
 }
 
 }

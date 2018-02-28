@@ -1,0 +1,71 @@
+<div class="form-group">
+	<label for="title">Product title</label>
+<input type="text" name="title" #title [(ngModel)]="product.title" (blur)="updateProduct(title.value,'title')" id="title" class="form-control">
+<div class="row align-middle">
+	<div class="col-md-4 col-sm-12 mt-2">
+	<div class="input-group">
+<input type="text" name="author" #author (keydown.enter)="addItem(author,'authors')" placeholder="add author..." id="title" class="form-control">
+<div class="input-group-append bg-transparent">
+    <span class="input-group-text bg-transparent hoverable"><i class="material-icons text-white" (click)="addItem(author,'authors')">add_circle_outline</i></span>
+  </div>
+</div>
+</div>
+<div class="col-md-8 col-sm-12 mt-2">
+<span *ngFor="let author of product.authors;let i = index;" class="chip">{{author}}<i class="material-icons text-muted" (click)="removeItem(i,'authors')">close</i></span>
+</div>
+
+	</div>
+
+<hr>
+	<div class="row align-middle">
+		<div class="col-md-4 col-sm-12 mt-2">
+	<div class="input-group">
+<input type="text" name="topic" #topic (keydown.enter)="addItem(topic,'topics')" placeholder="add topic..." id="topic" class="form-control">
+<div class="input-group-append bg-transparent">
+    <span class="input-group-text bg-transparent hoverable"><i class="material-icons text-white" (click)="addItem(topic,'topics')">add_circle_outline</i></span>
+  </div>
+</div>
+</div>
+<div class="col-md-8 col-sm-12 mt-2">
+<span *ngFor="let topic of product.topics;let i = index;" class="chip">{{topic}}<i class="material-icons text-muted" (click)="removeItem(i,'topics')">close</i></span>
+</div>
+
+	</div>
+
+<hr>
+
+<div class="row">
+	
+    <div class="input-group col-md-6">
+      <input class="form-control" placeholder="pick the release date..."
+             name="release" [(ngModel)]="product.release" (ngModelChange)="updateProduct(null,'release','date')" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+       <div class="input-group-append bg-transparent">
+    <span class="input-group-text bg-transparent hoverable"><i class="material-icons text-white" (click)="d.toggle()">date_range</i></span>
+  </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+    	<div class="row">
+    			<div class="col-md-4 col-sm-4 mt-auto mb-auto">
+    				Price in {{activeCurrency}}($)
+    			</div>
+				<div class="col-md-8 col-sm-8">
+					<input type="number" name="price" #price [(ngModel)]="product.price" (blur)="updateProduct(price.value,'price')" id="price" class="form-control">
+				</div>
+		 </div>
+		</div>
+  </div>
+  <hr>
+  <div class="row">
+  	<div class="col-lg-12 col-md-12 col-sm-12">
+  		<label for="description">Description</label>
+  		<textarea class="form-control" id="description" [(ngModel)]="product.description" #description (blur)="updateProduct(description.value,'description')" placeholder="product description"></textarea>
+  	</div>
+
+
+  </div>
+  <div class="float-right mt-2">
+		  <i  *ngIf="loading$" class="material-icons rotating align-middle mr-1">filter_tilt_shift</i><button class="btn custom-primary-btn" [disabled]="loading$" (click)="saveChanges()">{{loading$ ? 'Saving...' : 'Save changes'}}</button>
+		</div>
+</div>

@@ -1,45 +1,36 @@
- <div class="container-fluid">
-      <div class="row">
-        <nav class="sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
+
+        
+            <ul class="nav flex-column" [ngClass]="{'expanded':!sidebarCollapsed}">
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/dashboard']">
         		 <i class="material-icons">dashboard</i>
-                  Dashboard <span class="sr-only">(current)</span>
+                  <span class="nav-caption">Dashboard</span><span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/dashboard/orders']">
                  <i class="material-icons">insert_drive_file</i>
-                  Orders
+                  <span class="nav-caption">Orders</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/dashboard/products']">
                    <i class="material-icons">shopping_cart</i>
-                  Products
+                  <span class="nav-caption">Products</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/dashboard/customers']">
                 	  <i class="material-icons">person_pin</i>
                 
-                  Customers
+                  <span class="nav-caption">Customers</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i class="material-icons">reorder</i>
-                  Reports
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                 <i class="material-icons">date_range</i>
-                  Calendar
+                <a class="nav-link" [routerLink]="['/dashboard/updates']">
+                  <i class="material-icons">notifications_active</i>
+                   <span class="nav-caption">Updates</span>
                 </a>
               </li>
             </ul>
-
-          </div>
+        

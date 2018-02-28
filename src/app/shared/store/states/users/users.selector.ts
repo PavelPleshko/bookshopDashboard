@@ -3,6 +3,7 @@ import {IUsersTable,IUsersState,IUsersArray} from './users.interface';
 import {Store} from '@ngrx/store';
 import {IStore} from '../../interfaces/store.interface';
 
+
 export const getAllUsersState = createFeatureSelector<IUsersState>('users');
 
 export const getAllUsers = createSelector(getAllUsersState,(state:IUsersState)=>state.data);
@@ -30,3 +31,4 @@ export const getUsersOnline = createSelector(getUserArray,(users:IUsersArray)=>{
 export const getUsersOffline = createSelector(getUserArray,(users:IUsersArray)=>{
 	return users.filter(user=>!user.isOnline);
 })
+

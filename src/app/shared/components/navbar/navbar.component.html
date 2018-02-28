@@ -4,7 +4,7 @@
         <a class="navbar-brand ml-4" href="#">
         	<span class="navbar-brand--text">Book-<span class="navbar-brand--text--postfix">shop</span></span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" (click)="toggleSidebarFunc()">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse ml-5" id="navbarCollapse">
@@ -14,10 +14,31 @@
           </form>
 
         </div>
+        <label class="theme-switch mr-5 d-none d-md-flex">
+      <span class="">Light</span>
+      <div class="switch">
+        <input type="checkbox" [checked]="currentTheme == 'default'" (change)="toggleTheme(theme.checked)" #theme>
+        <span class="slider"></span>
+      </div>
+      <span class="">Dark</span>
+    </label>
         <div class="notifications">
           	<div class="notifications--main">
+              <div class="dropdown-toggler" (click)="toggleNotifications()">
           		<i class="material-icons">notifications_none</i>
-          		<div class="notifications--counter">4<div class="notifications--counter--ring"></div></div>
+          		<div class="notifications--counter">{{updates.length}}<div class="notifications--counter--ring"></div></div>
+            </div>
+              <ul class="notifications--updates" *ngIf="notificationDropdownVisible" @slideInOutAnimation>
+                <li *ngFor="let update of updates">
+                <app-update-single [update]="update"></app-update-single>
+              </li>
+              <li *ngIf="updates.length<1">
+                <p class="text-muted">No updates to display</p>
+              </li>
+              <li class="text-center py-1 notifications--more" *ngIf="updates.length>3">
+                <a [routerLink]="'/dashboard/updates'" (click)="toggleNotifications()">Check out more...</a>
+              </li>
+              </ul>
           </div>
       </div>
       </nav>

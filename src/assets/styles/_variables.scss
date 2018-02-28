@@ -33,8 +33,8 @@ $margin-center-vertical-align:auto 0;
 
 
 
-$box-shadow-main:1px 1px 5px 0px $secondary-bg-color-darker;
-
+$box-shadow-main-mild:1px 1px 5px 0px $secondary-bg-color-darker;
+$box-shadow-main-heavy:1px 4px 9px 0px $secondary-bg-color;
 
 
 $premium-color:#28e028;
@@ -53,3 +53,32 @@ $button-danger-bg:#480619;
 $button-danger-border:lighten($button-danger-bg,10%);
 
 
+//light theme
+$main-bg-color-light:#09151B;
+$secondary-bg-color-light:#f5f8fa;
+
+$main-bg-color-lighter-light:lighten($main-bg-color-light,5%);
+$main-bg-color-darker-light:darken($main-bg-color-light,8%);
+
+$secondary-bg-color-lighter-light:lighten($secondary-bg-color-light,4%);
+$secondary-bg-color-darker-light:darken($secondary-bg-color-light,8%);
+
+//typography
+$main-font-color-light:#212529;
+
+$main-font-color-light-semi_ts:rgba(255, 255, 255, 0.5);
+
+
+//borders
+$border-main-bottom-light:darken(#dedede,3%) !important;
+
+
+$box-shadow-main-mild-light:1px 1px 5px 0px $secondary-bg-color-darker;
+$box-shadow-main-heavy-light:1px 4px 9px 0px $secondary-bg-color;
+
+//buttons
+$button-primary-bg-light:#558b2f;
+$button-primary-border-light:lighten($button-primary-bg-light,20%);
+
+$button-danger-bg-light:#ef5350;
+$button-danger-border-light:lighten($button-danger-bg-light,10%);

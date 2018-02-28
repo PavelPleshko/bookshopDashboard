@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts3-angular": "^2.0.3",
     "@angular-devkit/core": "0.0.29",
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
@@ -25,7 +26,9 @@
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
     "@ngrx/effects": "^5.0.1",
     "@ngrx/store": "^5.0.0",
+    "amcharts3": "^3.21.12",
     "angular-in-memory-web-api": "^0.5.3",
+    "angular2-highcharts": "^0.5.5",
     "core-js": "^2.4.1",
     "ngrx-batch-action-reducer": "0.0.9-rc.1",
     "ngrx-store-freeze": "^0.2.1",
