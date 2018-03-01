@@ -25,7 +25,7 @@ Below the screenshots from app will be presented:
 ![products](screen_products.png)
 
 5)Product edit modal view.
-![products](screen_product_edit.png)
+![products](screen_edit_product.png)
 
 Plans to upgrade:
 1)Make the app responsive;
